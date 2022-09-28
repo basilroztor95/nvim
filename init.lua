@@ -44,3 +44,4 @@ return require'packer'.startup(function()
   use 'rebelot/kanagawa.nvim'
   use 'windwp/nvim-autopairs'
 end)
+
