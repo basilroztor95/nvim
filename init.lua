@@ -16,22 +16,22 @@ vim.o.splitright = true
 vim.o.splitbelow = true
 
 vim.api.nvim_create_autocmd('TextYankPost', {
-    group = num_au,
-    callback = function()
-        vim.highlight.on_yank({ higroup = 'Visual', timeout = 120 })
-    end,
+  group = num_au,
+  callback = function()
+    vim.highlight.on_yank({ higroup = 'Visual', timeout = 120 })
+  end,
 })
 
 require'nvim-treesitter.configs'.setup {
-	highlight = {
-		enable = true
-	}
+  highlight = {
+    enable = true
+  }
 }
 
 require'lspconfig'.tsserver.setup {
-	on_attach = function(client, bufnr) 
-		vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-	end
+  on_attach = function(client, bufnr) 
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  end
 }
 
 require'kanagawa'.load()
@@ -39,7 +39,7 @@ require'nvim-autopairs'.setup {}
 
 return require'packer'.startup(function()
   use 'wbthomason/packer.nvim'
-	use 'nvim-treesitter/nvim-treesitter'
+  use 'nvim-treesitter/nvim-treesitter'
   use 'neovim/nvim-lspconfig'
   use 'rebelot/kanagawa.nvim'
   use 'windwp/nvim-autopairs'
